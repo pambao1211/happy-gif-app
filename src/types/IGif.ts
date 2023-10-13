@@ -7,4 +7,7 @@ export interface IGif {
   webp: string
   mp4_size?: string
   mp4?: string
+  title: string
+  username: string
+  rating: string
 }

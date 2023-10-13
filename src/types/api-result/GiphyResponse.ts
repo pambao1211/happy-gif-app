@@ -1,4 +1,4 @@
-export interface GiphySearch {
+export interface GiphyResponse {
   data: Daum[]
   pagination: Pagination
   meta: Meta

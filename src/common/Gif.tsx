@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Box, Collapse, Image, Skeleton, Tooltip } from "@chakra-ui/react";
 import { IGif } from "../types/IGif.ts";
+import GifDetail from "./GifDetail.tsx";
 
 const Gif: React.FC<{ gif: IGif }> = ({ gif, ...rest }) => {
   const { url, width, height } = gif;
@@ -8,12 +9,12 @@ const Gif: React.FC<{ gif: IGif }> = ({ gif, ...rest }) => {
   const [isOpened, setIsOpened] = useState(false);
 
   return (
-    <Box>
+    <Box w={width}>
       <Collapse
         in={isOpened}
         transition={{ exit: { duration: 0.25 }, enter: { duration: 0.25 } }}
       >
-        <Box w="100%" h="100px" bg="red"></Box>
+        <GifDetail w={width} gif={gif} />
       </Collapse>
       <Tooltip
         bg="blue.200"
