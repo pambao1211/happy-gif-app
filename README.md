@@ -1,27 +1,38 @@
-# React + TypeScript + Vite
+# happy-gif-app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The project is a simple SPA to view GIFs retrieved from [GIPHY API](color="gray.800").
 
-Currently, two official plugins are available:
+Preview at: https://happy-gif-app.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🧰 Technologies used
+- React + Typescript
+- Vite Build Tool
+- ChakraUI
+- Lodash
+- Axios
+- Framer Motion
 
-## Expanding the ESLint configuration
+## ✨ Features included
+- Search for GIFs
+- Trending GIFs view
+- Pagination by infinitive scrolling
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🚀 Get started
 
-- Configure the top-level `parserOptions` property like this:
+### Prerequisites:
+- NodeJS
+- npm / yarn
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+### Steps:
+- Clone the project: `git clone https://github.com/pambao1211/happy-gif-app.git`
+- Navigate to the project directory: `cd happy-gif-app`
+- Install dependencies: `npm i`
+- Start local: `npm run start`
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### 🛵 Commands:
+- Run local: `npm run dev`
+- Build: `npm run build`
+- Preview: `npm run preview`
+
+## 📌 Please note: 
+Including a `.env` file in a public code repository is not a typical practice as it might contain sensitive information. However, for the purpose of this coding interview assignment and ease of project setup, the `.env` file has been intentionally included. This file does not contain any sensitive information.
