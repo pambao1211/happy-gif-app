@@ -2,7 +2,6 @@
 
 The project is a simple SPA to view GIFs retrieved from [GIPHY API](color="gray.800").
 
-Preview at: https://happy-gif-app.netlify.app/
 
 ## 🧰 Technologies used
 - React + Typescript
