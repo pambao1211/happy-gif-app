@@ -8,11 +8,6 @@ const ButtonScrollToTop = () => {
 
   useEffect(() => {
     const handleVisibility = () => {
-      console.log(
-        window.scrollY,
-        window.innerHeight,
-        document.documentElement.offsetHeight
-      );
       setIsVisible(scrollY >= window.innerHeight);
     };
     window.addEventListener(

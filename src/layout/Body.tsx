@@ -7,7 +7,7 @@ const Body: React.FC<{ children: ReactNode }> = ({ children }) => {
     <Flex w="100vw" justify="center">
       <Flex
         w="100%"
-        maxW="1280px"
+        maxW="1400px"
         dir="row"
         justify="center"
         padding={[10, 10]}

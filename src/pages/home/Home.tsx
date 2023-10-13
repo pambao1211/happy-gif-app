@@ -1,22 +1,23 @@
 import {
-  Box,
-  Divider,
-  Input,
-  InputGroup,
-  InputLeftElement,
-  Spinner,
+  SlideFade,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
 } from "@chakra-ui/react";
-import { SearchIcon } from "@chakra-ui/icons";
 import React, { useEffect, useRef, useState } from "react";
 
 import { fetchGIFResult } from "../../apis";
 import { IGif } from "../../types/IGif.ts";
-import GifList from "./GifList.tsx";
+import TabSearch from "./TabSearch.tsx";
+import TabTrending from "./TabTrending.tsx";
 
 const Home = () => {
   const [term, setTerm] = useState("");
   const [isLoading, setIsIsLoading] = useState(false);
   const [gifs, setGifs] = useState<IGif[]>([]);
+  const [isTrending, setIsTrending] = useState(true);
   const currentOffset = useRef(0);
   const hasMoreItem = useRef(true);
 
@@ -69,25 +70,36 @@ const Home = () => {
   };
 
   return (
-    <Box w="80%">
-      <InputGroup mb={10}>
-        <InputLeftElement>
-          {isLoading ? <Spinner /> : <SearchIcon />}
-        </InputLeftElement>
-        <Input
-          placeholder="Search for GIFs"
-          value={term}
-          onChange={handleSearchTermChange}
-        />
-      </InputGroup>
-      <Divider mb={10} />
-      <GifList
-        gifs={gifs}
-        handleLoadMore={handleLoadMore}
-        hasMore={hasMoreItem}
-        isLoading={isLoading}
-      />
-    </Box>
+    <Tabs display="flex" alignItems="center" flexDir="column" w="100%">
+      <TabList mb={5} display="flex" justifyContent="center" w="80%">
+        <Tab onClick={() => setIsTrending(true)}>Trending</Tab>
+        <Tab onClick={() => setIsTrending(false)}>Search Gifs</Tab>
+      </TabList>
+      <TabPanels display="flex" flexDir="column" alignItems="center" w="100%">
+        <TabPanel w="80%">
+          <SlideFade in={isTrending}>
+            <TabTrending
+              gifs={gifs}
+              handleLoadMore={handleLoadMore}
+              hasMoreItem={hasMoreItem}
+              isLoading={isLoading}
+            />
+          </SlideFade>
+        </TabPanel>
+        <TabPanel w="80%">
+          <SlideFade in={!isTrending}>
+            <TabSearch
+              isLoading={isLoading}
+              term={term}
+              handleSearchTermChange={handleSearchTermChange}
+              gifs={gifs}
+              handleLoadMore={handleLoadMore}
+              hasMoreItem={hasMoreItem}
+            />
+          </SlideFade>
+        </TabPanel>
+      </TabPanels>
+    </Tabs>
   );
 };
 
