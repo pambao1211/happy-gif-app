@@ -29,6 +29,7 @@ const Home = () => {
   const handleLoadMore = async () => {
     setIsIsLoading(true);
     if (!hasMoreItem.current) {
+        console.log(hasMoreItem.current)
       setIsIsLoading(false);
       return;
     }
@@ -74,8 +75,8 @@ const Home = () => {
       setIsIsLoading(true);
       await handleSearchTerm();
       setIsIsLoading(false);
+      console.log(term)
     }, 500);
-    return () => clearTimeout(timerId);
   }, [term]);
 
   useEffect(() => {
